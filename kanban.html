@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Kanban</title>
+
+    <script type="module" src="kanban.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div style="text-align: center; padding: 20px;">
+        <h2>My Kanban</h2>
+        <form id="form-add" style="display: inline-block;">
+            <input type="text" id="input-new-task" placeholder="New task...">
+            <button id=add-button type="submit" style="padding: 10px 20px;">Add</button>
+        </form>
+    </div>
+
+    <div class="kanban-board">
+        <div class="kanban-column">
+            <h3 style="border-bottom: 3px solid #dc3545;">Tasks</h3>
+            <div id="column-todo" class="list-cards"></div>
+        </div>
+
+        <div class="kanban-column">
+            <h3 style="border-bottom: 3px solid #ffc107;">In Progress</h3>
+            <div id="column-doing" class="list-cards"></div>
+        </div>
+
+        <div class="kanban-column">
+            <h3 style="border-bottom: 3px solid #28a745;">Done</h3>
+            <div id="column-done" class="list-cards"></div>
+        </div>
+    </div>
+</body>
+</html>

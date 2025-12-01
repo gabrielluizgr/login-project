@@ -1,0 +1,201 @@
+/*Estilo de tudo que está dentro do "body" */
+body {
+    margin: 0; /*Espaçamento externo*/
+    padding: 0; /*Espaçamento interno*/
+    font-family: Mulish, sans-serif; /*Fonte*/
+    background-color: #8b8b8b; /*Cor de fundo*/
+    height: 100vh; /*Ocupa 100% da tela*/
+
+    /*Centralização da caixa de login*/
+    display: flex; /*Transforma o container em um flex container, permitindo o alinhamento com flexbox*/
+    justify-content: center; /*Centraliza os elementos horizontalmente*/
+    align-items: center; /*Centraliza os elementos verticalmente*/
+}
+
+/*Estilo somente do container do login*/
+.login-container {
+    background-color:#f0f8ff; /*Cor de fundo*/
+    padding: 40px; /*Espaçamento interno*/
+    border-radius: 8px; /*Borda arredondada*/
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /*Sombra suave*/
+    width: 300px; /*Aumenta o tamanho do container*/
+    text-align: center; /*Alinha os textos dentro do container para o centro*/
+}
+
+/*Estilo do h2 (Welcome)*/
+h2 {
+    color: #333; /*Cor do texto*/
+    margin-bottom: 20px; /*Espaçamento externo de baixo*/
+}
+
+/*Estilo dos campos de input (label + campo)*/
+.input-group {
+    margin-bottom: 15px; /*Espaçamento externo de baixo*/
+    text-align: left; /*Alinha os textos referentes ao label à esquerda*/
+}
+
+/*Estilo somente do label*/
+label {
+    display: block; /*Garante que o elemento ocupe toda a largura disponível (gerando quebra de linha)*/
+    margin-bottom: 5px; /*Espaçamento externo de baixo*/
+    color: #8b8b8b; /*Cor do texto da label*/
+    font-size: 14px; /*Tamanho da fonte*/
+}
+
+/*Estilo somente do input*/
+input {
+    width: 100%; /*Ocupa toda a largura disponível no container*/
+    padding: 10px; /*Espaçamento interno*/
+    border: 1px solid #8b8b8b; /*Definição de uma borda com 1px de largura, linha contínua (solid) e sua cor*/
+    border-radius: 4px; /*Arredonda as bordas do input*/
+    box-sizing: border-box; /*Mantém a largura total correta, mesmo com padding e borda*/
+}
+
+/*Estilo do botão*/
+button {
+    width: 100%; /*Ocupa toda a largura disponível no container*/
+    padding: 10px; /*Espaçamento interno*/
+    background-color: #8b8b8b; /*Cor de fundo*/
+    color: white; /*Cor do texto*/
+    border: none; /*Remoção da borda padrão do botão*/
+    border-radius: 4px; /*Arredonda o botão*/
+    font-size: 16px; /*Tamanho do texto*/
+    cursor: pointer; /*Faz o mouse virar uma "mãozinha" quando está em cima do botão (indica que é clicável)*/
+    transition: background-color 0.3s; /*Cria uma animação suave quando o fundo muda de cor (geralmente usado junto com hover)*/
+}
+
+button:hover {
+    background-color: #0056b3; /*Botão muda de cor quando o mouse está em cima*/
+}
+
+/*Estilo do texto e hiperlink*/
+.link-text {
+    margin-top: 15px; /*Espaçamento externo de cima*/
+    font-size: 14px; /*Tamanho do texto*/
+    color: #8b8b8b; /*Cor do texto*/
+}
+
+.link-text a {
+    color: #8b8b8b; /*Cor do texto hiperlink*/
+    text-decoration: none; /*Remoção do sublinhado*/
+    font-weight: bold; /*Negrito*/
+}
+
+.link-text a:hover {
+    text-decoration: underline; /*Sublinhado somente quando o mouse está em cima*/
+}
+
+/*Estilo da mensagem de erro*/
+.error-msg {
+    color: #dc3545; /*Cor do erro*/
+    font-size: 13px; /*Tamanho do texto*/
+    margin-top: 5px; /*Espaçamento externo de cima*/
+    font-weight: bold; /*Negrito*/
+    display: none; /*Começa escondido*/
+}
+/*Classe extra para pintar a borda do input de vermelho*/
+.input-error {
+    border: 1px solid #dc3545 !important; /*O important força a cor vermelha*/
+}
+
+/*O pai (input-group) deve ser relative, para podermos trancar o filho (input-group i)*/
+/*Mantemos o resto*/
+.input-group {
+    position: relative;
+}
+
+/*Estilo do ícone*/
+.input-group i {
+    position: absolute; /*Posição trancada*/
+    right: 15px; /*Distância da direita*/
+    top: 34px; /*Empurra para baixo*/
+    cursor: pointer; /*Mãozinha de clique*/
+    color: #8b8b8b; /*Cor*/
+}
+/*Efeito ao passar o mouse*/
+.input-group i:hover {
+    color: #007bff;
+}
+
+.input-group i.fa-eye {
+    color: #8b8b8b; /*Cor do olho aberto*/
+}
+
+.input-group i.fa-eye-slash {
+    color: #007bff; /*Cor do olho com risco*/
+}
+
+/*Estilo do Kanban*/
+.kanban-board {
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.kanban-column {
+    background-color: #f0f8ff;
+    width: 300px;
+    min-height: 400px;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.kanban-column h3 {
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 10px;
+    color: #8b8b8b;
+}
+
+.card-task {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/*Animaçãozinha fadeIn*/
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*Botões de ação dentro do card*/
+.actions i {
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.actions i:hover {
+    background-color: #007bff;
+}
+
+/*Botão do Add do Kanban*/
+#add-button {
+    width: 100%; /*Ocupa toda a largura disponível no container*/
+    padding: 10px; /*Espaçamento interno*/
+    background-color: #f0f8ff; /*Cor de fundo*/
+    color: #333; /*Cor do texto*/
+    border: none; /*Remoção da borda padrão do botão*/
+    border-radius: 4px; /*Arredonda o botão*/
+    font-size: 16px; /*Tamanho do texto*/
+    cursor: pointer; /*Faz o mouse virar uma "mãozinha" quando está em cima do botão (indica que é clicável)*/
+    transition: background-color 0.3s; /*Cria uma animação suave quando o fundo muda de cor (geralmente usado junto com hover)*/
+    margin-top: 10px;
+}
+
+#add-button:hover {
+    background-color: #0056b3; /*Botão muda de cor quando o mouse está em cima*/
+}
