@@ -1,16 +1,7 @@
 // 1. IMPORTANDO AS FERRAMENTAS DO GOOGLE (VERSÃO WEB/URL)
+import firebaseConfig from './config.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-
-// 2. CONFIGURAÇÃO (SUAS CHAVES REAIS)
-const firebaseConfig = {
-  apiKey: "AIzaSyBK94nq3W55nW0UV8Z2e7arSOzNRPQ1mdc",
-  authDomain: "login-project-7dcfc.firebaseapp.com",
-  projectId: "login-project-7dcfc",
-  storageBucket: "login-project-7dcfc.firebasestorage.app",
-  messagingSenderId: "947459225980",
-  appId: "1:947459225980:web:524de4e93cac8d03280cf9"
-};
 
 // 3. INICIANDO O SISTEMA
 const app = initializeApp(firebaseConfig);
