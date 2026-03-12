@@ -1,36 +1,22 @@
-// 1. IMPORTS COM AUTH E FIRESTORE
+import firebaseConfig from './config.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBK94nq3W55nW0UV8Z2e7arSOzNRPQ1mdc",
-  authDomain: "login-project-7dcfc.firebaseapp.com",
-  projectId: "login-project-7dcfc",
-  storageBucket: "login-project-7dcfc.firebasestorage.app",
-  messagingSenderId: "947459225980",
-  appId: "1:947459225980:web:524de4e93cac8d03280cf9"
-};
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app); // INICIA O AUTH
+const auth = getAuth(app); 
 
-// --- SEGURANÇA (VIGILANTE) ---
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        window.location.href = "index.html"; // Chuta pra fora se não tiver logado
+        window.location.href = "index.html"; 
     }
 });
 
-// FUNÇÃO DE LOGOUT (Para o botão Sair funcionar)
 window.logout = async function() {
     await signOut(auth);
 }
 
-// --- LÓGICA DO KANBAN ---
-
-// 1. Adicionar tarefa
 const form = document.getElementById("form-add");
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -50,7 +36,7 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
-// 2. Listar tarefas
+
 onSnapshot(collection(db, "kanban"), (snapshot) =>{
     const todoColumn = document.getElementById("column-todo");
     const doingColumn = document.getElementById("column-doing");
@@ -69,7 +55,6 @@ onSnapshot(collection(db, "kanban"), (snapshot) =>{
         if (task.status === "todo") {
             todoColumn.appendChild(card);
         } else if (task.status === "doing") {
-            // CORREÇÃO: Mudei de 'colDoing' para 'doingColumn'
             doingColumn.appendChild(card); 
         } else {
             doneColumn.appendChild(card);
@@ -77,7 +62,6 @@ onSnapshot(collection(db, "kanban"), (snapshot) =>{
     });
 });
 
-// 3. Função para gerar o HTML do card
 function createCardHTML(id, title, status) {
     const div = document.createElement("div");
     div.classList.add("task-card");
@@ -92,7 +76,6 @@ function createCardHTML(id, title, status) {
                        <i class="fa-solid fa-arrow-right" style="color: #28a745;" onclick="moveTask('${id}', 'done')"></i>`; // Mudei cor pra verde
     }
     else {
-        // CORREÇÃO: Traduzi 'moverTarefa' -> 'moveTask' e 'deletarTarefa' -> 'deleteTask'
         buttonsHTML = `
             <i class="fa-solid fa-arrow-left" style="color: #ffc107;" onclick="moveTask('${id}', 'doing')"></i>
             <i class="fa-solid fa-trash" style="color: #dc3545;" onclick="deleteTask('${id}')"></i>`;
@@ -107,7 +90,6 @@ function createCardHTML(id, title, status) {
     return div;
 }
 
-// 4. Funções globais
 window.moveTask = async function(id, newStatus) {
     const taskRef = doc(db, "kanban", id);
     await updateDoc(taskRef, {
